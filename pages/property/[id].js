@@ -5,6 +5,7 @@ import { GoVerified } from "react-icons/go";
 import millify from "millify";
 import { baseUrl, fetchApi } from "../../utils/fetchApis";
 import ImageScrollbar from "../../components/ImageScrollbar";
+import parse from "html-react-parser";
 
 const PropertyDetails = ({
     propertyDetails: {
@@ -33,9 +34,11 @@ const PropertyDetails = ({
                 justifyContent="space-between"
             >
                 <Flex alignItems="center">
-                    <Box paddingRight="3" color="green.400">
-                        {isVerified && <GoVerified />}
-                    </Box>
+                    {isVerified && (
+                        <Box paddingRight="3" color="green.400">
+                            <GoVerified />
+                        </Box>
+                    )}
                     <Text fontWeight="bold" fontSize="lg">
                         AED {millify(price)}
                         {rentFrequency && `/${rentFrequency}`}
@@ -55,10 +58,10 @@ const PropertyDetails = ({
                 {rooms} <FaBed /> | {baths} <FaBath /> | {millify(area)} sqft{" "}
                 <BsGridFill />
             </Flex>
-            <Box marginTop="2">
+            <Box marginTop="2" >
                 <Text fontSize="lg">{title}</Text>
-                <Text lineHeight="2" color="gray.600">
-                    {description}
+                <Text lineHeight="1.8" color="gray.600" marginTop="2" whiteSpace="break-spaces">
+                    {parse(description)}
                 </Text>
             </Box>
             <Flex
@@ -116,7 +119,7 @@ const PropertyDetails = ({
                                 m="1"
                                 bg="gray.200"
                                 borderRadius="5"
-                                key="amenity.text"
+                                key={amenity.text}
                             >
                                 {amenity.text}
                             </Text>
