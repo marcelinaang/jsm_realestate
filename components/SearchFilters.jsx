@@ -140,7 +140,7 @@ const SearchFilters = () => {
                                         marginTop="5"
                                         marginBottom="5"
                                     >
-                                        <Image src={noresult} />
+                                        <Image src={noresult} alt="no image" />
                                         <Text fontSize="xl" marginTop="3">
                                             Waiting to search!
                                         </Text>
