@@ -3,6 +3,8 @@ This is a project called Modern Real Estate App, loosely based on tutorial by Ja
 Technologies used:
 -   ReactJS
 -   NextJS
+
+UI:
 -   Chakra UI
 
 API source:
